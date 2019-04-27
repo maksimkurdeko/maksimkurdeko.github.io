@@ -1,22 +1,55 @@
- <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>WebPage</title>
-  <style type="text/css">
-   .header, .footer { background: #ceeeff; }
-   .layout { overflow: hidden; }
-   .layout DIV { float: left; }
-   .col1 { background: #C7E3E4; width: 33.3%; }
-   .col2 { background: #E0D2C7; width: 33.3%; }
-   .col3 { background: #ECD5DE; width: 33.3%; }
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dzineji</title>
+  </head>
+  <style>
+html, body {margin:0;padding:0;}
+    .main {
+        margin:0 auto; /* Центрируем блоки */
+        width:100%; /* Задаем ширину 100%, чтобы сделать ее резиновой */
+        max-width:700px; /* Устанавливаем максимальную ширину */
+    }
+    .inline div {
+        display:inline-block; /* Делаем блоки по горизонтали */
+        display: -moz-inline-stack; /* Для FireFox 2, тот же самый, что и inline-block */
+        vertical-align:top; /* Выравниваем их сверху */
+        font-size:15px; /* Ставим дочкам размер шрифта, иначе примет значение родителя */
+        /* Для IE 6 и IE 7, чтобы блоки были по горизонтали
+        zoom: 1;
+        *display: inline;
+        */
+    }
+    div.inline {font-size:0;} /* Ставим родителю значение 0, чтобы убрать отступы у блоков*/
+    .left-block {
+        background:red;
+        width:20%; /*Задаем ширину в процентах чтобы сделать ее резиновой*/
+        height:300px; /* Высота блока */
+    }
+    .content {
+        background:green;
+        width:60%;
+        height:300px;
+    }
+    .right-block {
+        background:blue;
+        width:20%;
+        height:300px;
+    }
+	@media (max-width:600px) {
+    .inline div {
+        display:block; /* Делаем блоки “Блочными”, т.е. друг под другом */
+        width:100%; /* Задаем на всю ширину экрана */
+        height:100px;
+    }
+}
   </style>
- </head>
- <body>
-  <div class="header">Шапка сайта</div>
-  <div class="layout">
-   <div class="col1">Колонка 1</div>
-   <div class="col2">Колонка 2</div>
-   <div class="col3">Колонка 3</div>
-  </div>
-  <div class="footer">Подвал</div>
+  <body>
+<div class="main inline">
+<div class="left-block">left</div>
+<div class="content">content</div>
+<div class="right-block">right</div>
+</div>
  </body>
 </html>
